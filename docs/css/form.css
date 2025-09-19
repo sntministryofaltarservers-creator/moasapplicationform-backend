@@ -1,0 +1,154 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.form-wrapper {
+  width: 1000px;
+  max-width: none;           /* Remove constraint */
+  padding: 40px 60px;
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(67, 52, 52, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  font-weight: 600;
+}
+
+/* 🔹 New spacing rules for better breathing room */
+#applicationForm label {
+  display: block;              /* Stack label and input vertically */
+  margin-bottom: 1rem;         /* Space after each field group */
+}
+
+#applicationForm label input,
+#applicationForm label select,
+#applicationForm label textarea {
+  margin-top: 0.4rem;          /* Gap between label text and field */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 40px;
+  overflow: hidden;
+}
+
+input[type="file"] {
+  border: 2px solid #0077cc;
+  background-color: #f0f4f8;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #005fa3;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px 5px;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #005fa3;
+  transform: scale(1.02);
+}
+
+button:disabled,
+input[type="submit"]:disabled,
+input[type="button"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 30px 20px;
+    margin: 20px auto;
+    gap: 16px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+
+  input[type="submit"],
+  button,
+  input[type="button"] {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  img#previewImage {
+    max-width: 100%;
+    height: auto;
+  }
+}
