@@ -67,7 +67,7 @@ if (window.location.pathname.endsWith('preview.html')) {
 
   // Edit button → back to index
   document.getElementById('editBtn').addEventListener('click', () => {
-    window.location.href = '/index.html';
+    window.location.href = 'index.html';
   });
 
   // ===== Duplicate Name Helper Functions =====
@@ -116,7 +116,7 @@ if (window.location.pathname.endsWith('preview.html')) {
         }
         // Mark as submitted locally
         markAsSubmitted(fullName);
-        window.location.href = '/thankyou.html';
+        window.location.href = 'thankyou.html';
       })
       .catch(err => {
         alert(err.message || 'Error sending form');
@@ -137,7 +137,7 @@ if (window.location.pathname.endsWith('preview.html')) {
 }
 
 // ===== Thank You Page Logic =====
-if (window.location.pathname.endsWith('/thankyou.html')) {
+if (window.location.pathname.endsWith('thankyou.html')) {
   setTimeout(() => {
     window.location.href = '/index.html';
   }, 5000); // 5 seconds delay
