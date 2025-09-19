@@ -40,7 +40,7 @@ if (form && previewBtn) {
     });
 
     setTimeout(() => {
-      window.location.href = '/preview.html';
+      window.location.href = 'preview.html';
     }, 300);
   });
 }
