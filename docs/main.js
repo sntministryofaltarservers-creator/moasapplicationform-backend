@@ -146,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Simulate sending delay
     setTimeout(() => {
       loadingScreen.style.display = "none";
-      alert("Data sent successfully!");
       // Optionally redirect or show success message here
     }, 2000);
   });
