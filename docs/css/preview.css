@@ -1,0 +1,54 @@
+.preview-wrapper {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.preview-wrapper h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.preview-field {
+  margin-bottom: 20px;
+}
+
+.preview-field strong {
+  display: inline-block;
+  width: 160px; /* was 120px */
+  color: #555;
+}
+
+
+#prevImageContainer img {
+  display: block;
+  margin-top: 10px;
+  max-width: 300px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.preview-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.preview-actions button {
+  margin: 0 10px;
+}
+
+.preview-image-top {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.preview-image-top img {
+  max-width: 300px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
