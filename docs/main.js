@@ -1,5 +1,3 @@
-
-// ===== Form Logic (index.html) =====
 const form = document.getElementById('applicationForm');
 const previewBtn = document.getElementById('previewBtn');
 
@@ -26,30 +24,32 @@ if (form && previewBtn) {
 
   previewBtn.addEventListener('click', () => {
     const formData = new FormData(form);
+    const promises = [];
+
     formData.forEach((value, key) => {
       if (value instanceof File && value.size > 0) {
-        const reader = new FileReader();
-        reader.onload = e => {
-          sessionStorage.setItem(key, e.target.result);
-          sessionStorage.setItem(key + '_name', value.name);
-        };
-        reader.readAsDataURL(value);
+        const promise = new Promise(resolve => {
+          const reader = new FileReader();
+          reader.onload = e => {
+            sessionStorage.setItem(key, e.target.result);
+            sessionStorage.setItem(key + '_name', value.name);
+            resolve();
+          };
+          reader.readAsDataURL(value);
+        });
+        promises.push(promise);
       } else {
         sessionStorage.setItem(key, value);
       }
     });
 
-    setTimeout(() => {
+    Promise.all(promises).then(() => {
       window.location.href = 'preview.html';
-    }, 300);
+    });
   });
 }
 
-
-
-// ===== Preview Page Logic =====
 if (window.location.pathname.endsWith('preview.html')) {
-  // Populate preview fields
   document.getElementById('prevName').textContent = sessionStorage.getItem('fullName') || '';
   document.getElementById('prevAge').textContent = sessionStorage.getItem('age') || '';
   document.getElementById('prevAddress').textContent = sessionStorage.getItem('address') || '';
@@ -65,12 +65,10 @@ if (window.location.pathname.endsWith('preview.html')) {
     document.getElementById('prevImageContainer').appendChild(img);
   }
 
-  // Edit button → back to index
   document.getElementById('editBtn').addEventListener('click', () => {
     window.location.href = 'index.html';
   });
 
-  // ===== Duplicate Name Helper Functions =====
   function hasSubmittedBefore(name) {
     const submitted = JSON.parse(localStorage.getItem('submittedNames') || '[]');
     return submitted.includes(name.trim().toLowerCase());
@@ -82,11 +80,8 @@ if (window.location.pathname.endsWith('preview.html')) {
     localStorage.setItem('submittedNames', JSON.stringify(submitted));
   }
 
-  // Confirm button → send to backend
   document.getElementById('confirmBtn').addEventListener('click', () => {
     const fullName = sessionStorage.getItem('fullName') || '';
-
-    // Frontend duplicate check
     if (hasSubmittedBefore(fullName)) {
       alert('You have already submitted this form with the same name.');
       return;
@@ -97,7 +92,7 @@ if (window.location.pathname.endsWith('preview.html')) {
     formData.append('age', sessionStorage.getItem('age') || '');
     formData.append('address', sessionStorage.getItem('address') || '');
     formData.append('contact', sessionStorage.getItem('contact') || '');
-    formData.append('facebookName', sessionStorage.getItem('facebookName') || ''); // NEW
+    formData.append('facebookName', sessionStorage.getItem('facebookName') || '');
 
     const imgData = sessionStorage.getItem('userImage');
     const imgName = sessionStorage.getItem('userImage_name');
@@ -106,7 +101,7 @@ if (window.location.pathname.endsWith('preview.html')) {
       formData.append('userImage', blob, imgName);
     }
 
-    fetch('/send-email', {
+    fetch('https://moasapplicationform-backend.onrender.com/send-email', {
       method: 'POST',
       body: formData
     })
@@ -114,7 +109,6 @@ if (window.location.pathname.endsWith('preview.html')) {
         if (!res.ok) {
           return res.text().then(msg => { throw new Error(msg); });
         }
-        // Mark as submitted locally
         markAsSubmitted(fullName);
         window.location.href = 'thankyou.html';
       })
@@ -136,9 +130,8 @@ if (window.location.pathname.endsWith('preview.html')) {
   }
 }
 
-// ===== Thank You Page Logic =====
 if (window.location.pathname.endsWith('thankyou.html')) {
   setTimeout(() => {
-    window.location.href = '/index.html';
-  }, 5000); // 5 seconds delay
+    window.location.href = 'index.html';
+  }, 5000);
 }
