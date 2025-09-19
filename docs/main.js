@@ -137,7 +137,7 @@ if (window.location.pathname.endsWith('thankyou.html')) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const confirmBtn = document.getElementById("confirmSendBtn");
+  const confirmBtn = document.getElementById("confirmBtn");
   const loadingScreen = document.getElementById("loading-screen");
 
   confirmBtn.addEventListener("click", () => {
