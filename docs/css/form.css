@@ -17,7 +17,7 @@ html, body {
 }
 
 .form-wrapper {
-  width: 1000px;
+  width: 100%;
   max-width: 500px;           
   padding: 40px 60px;
   margin: 20px 0;
@@ -135,10 +135,9 @@ input[type="button"]:disabled {
   }
 
   .form-wrapper {
-    padding: 30px 20px;
-    margin: 20px auto;
+    padding: 20px;
+    margin: 10px;
     max-width: 100%;
-    gap: 16px;
   }
 
   h1, h2 {
@@ -164,12 +163,8 @@ input[type="button"]:disabled {
     padding: 10px 14px;
     width: 100%;
   }
-
-  img#previewImage {
-    max-width: 100%;
-    height: auto;
-  }
 }
+
 
 
 
