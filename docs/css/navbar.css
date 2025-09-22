@@ -1,9 +1,8 @@
 /* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 100px; /* large and visible */
+  height: 100px;
   width: auto;
-  margin-right: 16px;
-  max-height: 100%;
+  max-width: none;
 }
 
 .logo-section {
@@ -11,7 +10,7 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: stretch; /* keeps text vertically centered with logo */
+  align-items: center; /* keeps text vertically centered with logo */
   padding: 0 24px; /* remove vertical padding so logo height defines navbar height */
   width: 100%;
 }
