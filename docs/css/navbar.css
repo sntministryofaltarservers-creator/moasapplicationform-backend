@@ -1,5 +1,6 @@
+/* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 60px; /* smaller, balanced size */
+  height: 150px; /* will now actually display at this size */
   width: auto;
   max-width: none;
   display: block;
@@ -10,21 +11,21 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* keeps text vertically centered with logo */
-  padding: 8px 20px; /* compact vertical padding */
+  align-items: flex-start; /* allow logo to be taller than text */
+  padding: 0 20px; /* remove vertical padding so logo height sets navbar height */
   width: 100%;
   gap: 12px;
 }
 
 .logo-left {
-  flex: 0 0 auto; /* don’t let it shrink */
+  flex: 0 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* align logo to top */
 }
 
 .logo-right {
   display: flex;
-  align-items: center;
+  align-items: center; /* keep text vertically centered in its own space */
   justify-content: flex-end;
   flex: 1;
 }
@@ -37,17 +38,17 @@
   white-space: nowrap;
 }
 
-/* Desktop */
+/* 🔹 Desktop layout */
 @media (min-width: 601px) {
   .logo-right p {
     font-size: 24px;
   }
 }
 
-/* Mobile */
+/* 🔹 Mobile layout */
 @media (max-width: 600px) {
   .navbar-logo {
-    height: 50px; /* even smaller on mobile */
+    height: 50px; /* smaller on mobile */
   }
   .logo-section {
     flex-direction: column;
