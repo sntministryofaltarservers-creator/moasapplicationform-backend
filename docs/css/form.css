@@ -20,12 +20,13 @@ body {
 }
 
 .form-wrapper {
-  max-width: 800px;
+  width: 100%;
+  max-width: 700px; /* wider on desktop */
   margin: 20px auto;
-  padding: 20px;
+  padding: 24px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h1 {
@@ -108,7 +109,7 @@ input[type="file"]::file-selector-button:hover {
   cursor: not-allowed;
 }
 
-
+/* 🔹 Mobile styles */
 @media (max-width: 768px) {
   .main-content {
     padding: 20px 10px;
@@ -140,5 +141,26 @@ input[type="file"]::file-selector-button:hover {
     padding: 10px 14px;
     width: 100%;
     max-width: 240px;
+  }
+}
+
+/* 🔹 Desktop enhancements */
+@media (min-width: 1024px) {
+  .form-wrapper {
+    padding: 32px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+  #previewBtn {
+    font-size: 18px;
+    padding: 14px 24px;
   }
 }
