@@ -93,10 +93,16 @@ if (window.location.pathname.endsWith('preview.html')) {
     localStorage.setItem('submittedNames', JSON.stringify(submitted));
   }
 
-  document.getElementById('confirmBtn').addEventListener('click', () => {
+  const confirmBtn = document.getElementById("confirmBtn");
+  const loadingScreen = document.getElementById("loading-screen");
+
+  confirmBtn.addEventListener("click", () => {
+    loadingScreen.style.display = "flex"; // Show loading immediately
+
     const fullName = sessionStorage.getItem('fullName') || '';
     if (hasSubmittedBefore(fullName)) {
       alert('You have already submitted this form with the same name.');
+      loadingScreen.style.display = "none"; // Hide if duplicate
       return;
     }
 
@@ -123,10 +129,11 @@ if (window.location.pathname.endsWith('preview.html')) {
           return res.text().then(msg => { throw new Error(msg); });
         }
         markAsSubmitted(fullName);
-        window.location.href = 'thankyou.html';
+        window.location.href = 'thankyou.html'; // Keep loading until redirect
       })
       .catch(err => {
         alert(err.message || 'Error sending form');
+        loadingScreen.style.display = "none"; // Hide if error
       });
   });
 
@@ -142,6 +149,7 @@ if (window.location.pathname.endsWith('preview.html')) {
     return new Blob([u8arr], { type: mime });
   }
 }
+
 
 if (window.location.pathname.endsWith('thankyou.html')) {
   setTimeout(() => {
