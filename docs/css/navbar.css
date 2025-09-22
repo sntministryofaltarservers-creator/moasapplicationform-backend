@@ -8,6 +8,13 @@ html, body {
   box-sizing: border-box;
 }
 
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 12px;
+}
+
+
 .logo-section {
   background-color: #0077cc;
   color: white;
@@ -19,7 +26,6 @@ html, body {
   flex-wrap: wrap;
 }
 
-.logo-left,
 .logo-right {
   flex: 1 1 100%;
   display: flex;
@@ -28,13 +34,14 @@ html, body {
   margin-bottom: 10px;
 }
 
-.logo-left img,
-.logo-right p {
-  margin: 0;
+.logo-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.logo-left img {
-  font-size: 26px;
+.logo-right p {
+  margin: 0;
 }
 
 .logo-right p {
