@@ -21,7 +21,7 @@ body {
 
 .form-wrapper {
   width: 100%;
-  max-width: 700px; /* wider on desktop */
+  max-width: 1000px; /* wider on desktop */
   margin: 20px auto;
   padding: 24px;
   background: white;
