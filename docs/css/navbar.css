@@ -28,12 +28,12 @@ html, body {
   margin-bottom: 10px;
 }
 
-.logo-left h2,
+.logo-left img,
 .logo-right p {
   margin: 0;
 }
 
-.logo-left h2 {
+.logo-left img {
   font-size: 26px;
 }
 
