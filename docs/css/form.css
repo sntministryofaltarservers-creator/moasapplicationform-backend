@@ -13,7 +13,8 @@ html, body {
 .main-content {
   display: flex;
   justify-content: center;
-  padding: 30px 15px;
+  padding: 40px 15px; /* more breathing room */
+  background-color: #f9f9f9;
 }
 
 .form-wrapper {
@@ -51,6 +52,7 @@ h1 {
 
 textarea {
   resize: none;
+  min-height: 60px; /* better for address field */
 }
 
 input[type="file"] {
