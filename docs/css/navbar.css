@@ -1,7 +1,7 @@
 /* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 300px; /* bigger for visibility */
-  width: auto;
+  height: 500px; /* bigger for visibility */
+  width: 100%;
   margin-right: 12px;
 }
 
