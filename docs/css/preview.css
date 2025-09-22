@@ -4,7 +4,7 @@
   background: #fff;
   padding: 30px 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .preview-wrapper h1 {
@@ -19,7 +19,8 @@
 
 .preview-field strong {
   display: inline-block;
-  width: 160px; /* was 120px */
+  width: 160px;
+  /* was 120px */
   color: #555;
 }
 
@@ -36,7 +37,8 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px; /* ✅ Controls spacing between buttons */
+  gap: 12px;
+  /* ✅ Controls spacing between buttons */
   margin-top: 30px;
 }
 
@@ -69,3 +71,17 @@
   border: 1px solid #ccc;
 }
 
+@media (max-width: 600px) {
+  .preview-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .preview-actions button {
+    width: 80%;
+    max-width: 240px;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+}
