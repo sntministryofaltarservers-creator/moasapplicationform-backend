@@ -16,8 +16,7 @@
 }
 
 .logo-left {
-  display: flex;
-  align-items: center;
+  flex: 0 0 auto; /* don’t let it shrink */
 }
 
 .logo-right {
