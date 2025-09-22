@@ -1,5 +1,6 @@
 const form = document.getElementById('applicationForm');
 const previewBtn = document.getElementById('previewBtn');
+const userImageInput = document.getElementById('userImage');
 
 if (form && previewBtn) {
   previewBtn.disabled = true;
@@ -8,19 +9,31 @@ if (form && previewBtn) {
 
   function checkFormCompletion() {
     let allFilled = true;
+
+    // Check all required text/number/textarea inputs
     form.querySelectorAll('[required]').forEach(input => {
       if (!input.value.trim()) {
         allFilled = false;
       }
     });
+
+    // Check if a file is selected
+    if (!userImageInput.files || userImageInput.files.length === 0) {
+      allFilled = false;
+    }
+
     previewBtn.disabled = !allFilled;
     previewBtn.style.opacity = allFilled ? '1' : '0.5';
     previewBtn.style.cursor = allFilled ? 'pointer' : 'not-allowed';
   }
 
+  // Listen to input changes
   form.querySelectorAll('[required]').forEach(input => {
     input.addEventListener('input', checkFormCompletion);
   });
+
+  // Listen to file selection
+  userImageInput.addEventListener('change', checkFormCompletion);
 
   previewBtn.addEventListener('click', () => {
     const formData = new FormData(form);
@@ -48,6 +61,7 @@ if (form && previewBtn) {
     });
   });
 }
+
 
 if (window.location.pathname.endsWith('preview.html')) {
   document.getElementById('prevName').textContent = sessionStorage.getItem('fullName') || '';
