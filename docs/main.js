@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const fullName = sessionStorage.getItem('fullName') || '';
       if (hasSubmittedBefore(fullName)) {
         alert('You have already submitted this form with the same name.');
-        loadingScreen.style.display = "none"; // Hide if blocked
+        loadingScreen.style.display = "none"; // ✅ Hide loading if duplicate
         return;
       }
 
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return res.text().then(msg => { throw new Error(msg); });
           }
           markAsSubmitted(fullName);
-          // Keep loading screen visible until redirect
+          // Keep loading until redirect
           window.location.href = 'thankyou.html';
         })
         .catch(err => {
@@ -197,4 +197,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
