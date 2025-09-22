@@ -10,32 +10,60 @@
 </head>
 
 <body>
-  <div class="logo-section">
-    <div class="logo-left">
-      <img src="logo.png" alt="Logo" class="navbar-logo">
+  <<!-- 🔹 Navbar -->
+    <div class="logo-section">
+      <div class="logo-left">
+        <img src="logo.png" alt="Logo" class="navbar-logo" />
+        <h2>LOGO</h2>
+      </div>
+      <div class="logo-right">
+        <p>To Serve Humbly The Lord</p>
+      </div>
     </div>
-    <div class="logo-right">
-      <p>To Serve Humbly The Lord</p>
+
+    <!-- 🔹 Main Content -->
+    <div class="main-content">
+      <div class="form-wrapper">
+        <h1>Application Form</h1>
+        <form id="applicationForm">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required />
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="tel" id="contact" name="contact" required />
+          </div>
+
+          <div class="form-group">
+            <label for="facebookName">Facebook Name</label>
+            <input type="text" id="facebookName" name="facebookName" />
+          </div>
+
+          <div class="form-group">
+            <label for="userImage">Upload Photo (ID or Selfie)</label>
+            <input type="file" id="userImage" name="userImage" accept="image/*" />
+          </div>
+
+          <div class="button-group">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-
-  <div class="main-content">
-    <div class="form-wrapper" id="formSection">
-      <h1>Application Form</h1>
-      <form id="applicationForm">
-        <label>Full Name: <input type="text" name="fullName" required /></label>
-        <label>Age: <input type="number" name="age" required /></label>
-        <label>Address: <input type="text" name="address" required /></label>
-        <label>Contact: <input type="text" name="contact" required /></label>
-        <label>Facebook Name: <input type="text" name="facebookName" required /></label>
-        <label>Upload Photo (ID or Selfie): <input type="file" name="userImage" accept="image/*" required /></label>
-        <button type="button" id="previewBtn">Preview</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

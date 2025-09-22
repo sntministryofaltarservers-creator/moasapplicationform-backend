@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 * {
@@ -17,57 +19,37 @@ html, body {
 }
 
 .form-wrapper {
-  width: 100%;
-  max-width: 500px;           
-  padding: 40px 60px;
-  margin: 20px 0;
-  background-color: #fff;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(67, 52, 52, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-h1, h2 {
+h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
 }
 
-label {
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
   font-weight: 600;
 }
 
-/* 🔹 New spacing rules for better breathing room */
-#applicationForm label {
-  display: block;              /* Stack label and input vertically */
-  margin-bottom: 1rem;         /* Space after each field group */
-}
-
-#applicationForm label input,
-#applicationForm label select,
-#applicationForm label textarea {
-  margin-top: 0.4rem;          /* Gap between label text and field */
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 10px;
-  box-sizing: border-box;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="tel"],
-textarea,
-input[type="file"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
   font-size: 14px;
-  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 textarea {
@@ -81,7 +63,6 @@ input[type="file"] {
   background-color: #f0f4f8;
   color: #333;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 input[type="file"]::file-selector-button {
@@ -99,34 +80,28 @@ input[type="file"]::file-selector-button:hover {
   background-color: #005fa3;
 }
 
-button,
-input[type="submit"],
-input[type="button"] {
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.button-group button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
   background-color: #0077cc;
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin: 10px 5px;
 }
 
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
+.button-group button:hover {
   background-color: #005fa3;
   transform: scale(1.02);
-}
-
-button:disabled,
-input[type="submit"]:disabled,
-input[type="button"]:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  transform: none;
 }
 
 @media (max-width: 768px) {
@@ -140,32 +115,25 @@ input[type="button"]:disabled {
     max-width: 100%;
   }
 
-  h1, h2 {
+  h1 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  label {
+  .form-group label {
     font-size: 0.95rem;
   }
 
-  input,
-  textarea,
-  select {
+  .form-group input,
+  .form-group textarea {
     font-size: 0.95rem;
     padding: 8px;
   }
 
-  button,
-  input[type="submit"],
-  input[type="button"] {
+  .button-group button {
     font-size: 0.95rem;
     padding: 10px 14px;
     width: 100%;
+    max-width: 240px;
   }
 }
-
-
-
-
-
