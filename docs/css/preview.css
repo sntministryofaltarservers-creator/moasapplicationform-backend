@@ -36,29 +36,28 @@
 .preview-actions {
   display: flex;
   justify-content: center;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 12px;
-  /* ✅ Controls spacing between buttons */
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .preview-actions button {
-  padding: 10px 16px;
-  font-size: 14px;
+  padding: 8px 14px;
+  font-size: 13px;
   border-radius: 6px;
-  margin: 0 6px 16px;
-  min-width: 120px;
-  max-width: 160px;
-  border: none;
   background-color: #0077cc;
   color: white;
+  border: none;
   cursor: pointer;
+  min-width: 100px;
+  max-width: 140px;
   transition: background-color 0.3s ease;
 }
 
 .preview-actions button:hover {
   background-color: #005fa3;
 }
+
 
 .preview-image-top {
   text-align: center;
@@ -73,15 +72,14 @@
 
 @media (max-width: 600px) {
   .preview-actions {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .preview-actions button {
-    width: 80%;
-    max-width: 240px;
-    font-size: 13px;
-    margin-bottom: 12px;
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 90px;
+    max-width: 120px;
   }
-
 }
