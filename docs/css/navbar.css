@@ -1,8 +1,9 @@
 /* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 5000px;
+  height: 140px; /* bigger for visibility */
   width: auto;
-  max-width: none;
+  max-width: none; /* prevent shrinking */
+  display: block;
 }
 
 .logo-section {
@@ -11,12 +12,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center; /* keeps text vertically centered with logo */
-  padding: 0 24px; /* remove vertical padding so logo height defines navbar height */
+  padding: 0 24px; /* no vertical padding so logo height sets navbar height */
   width: 100%;
+  gap: 20px; /* space between logo and text */
 }
 
 .logo-left {
   flex: 0 0 auto; /* don’t let it shrink */
+  display: flex;
+  align-items: center;
 }
 
 .logo-right {
@@ -27,31 +31,34 @@
 }
 
 .logo-right p {
-  font-size: 24px;
+  font-size: 26px;
   margin: 0;
   text-align: right;
   line-height: 1.2;
+  white-space: nowrap; /* prevent wrapping */
 }
 
 /* 🔹 Desktop layout */
 @media (min-width: 601px) {
   .logo-right p {
-    font-size: 28px;
+    font-size: 30px;
   }
 }
 
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
   .navbar-logo {
-    height: 70px; /* slightly smaller on mobile */
+    height: 90px; /* still large on mobile */
   }
   .logo-section {
     flex-direction: column;
     text-align: center;
     padding: 12px 16px;
+    gap: 10px;
   }
   .logo-right p {
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
+    white-space: normal; /* allow wrapping on small screens */
   }
 }
