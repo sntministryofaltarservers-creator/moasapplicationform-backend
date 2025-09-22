@@ -1,3 +1,6 @@
+// =========================
+// INDEX PAGE LOGIC
+// =========================
 const form = document.getElementById('applicationForm');
 const previewBtn = document.getElementById('previewBtn');
 const userImageInput = document.getElementById('userImage');
@@ -62,7 +65,11 @@ if (form && previewBtn) {
   });
 }
 
+// =========================
+// PREVIEW PAGE LOGIC
+// =========================
 if (window.location.pathname.endsWith('preview.html')) {
+  // Populate preview fields
   document.getElementById('prevName').textContent = sessionStorage.getItem('fullName') || '';
   document.getElementById('prevAge').textContent = sessionStorage.getItem('age') || '';
   document.getElementById('prevAddress').textContent = sessionStorage.getItem('address') || '';
@@ -78,10 +85,12 @@ if (window.location.pathname.endsWith('preview.html')) {
     document.getElementById('prevImageContainer').appendChild(img);
   }
 
+  // Edit button
   document.getElementById('editBtn').addEventListener('click', () => {
     window.location.href = 'index.html';
   });
 
+  // Duplicate check helpers
   function hasSubmittedBefore(name) {
     const submitted = JSON.parse(localStorage.getItem('submittedNames') || '[]');
     return submitted.includes(name.trim().toLowerCase());
@@ -93,6 +102,7 @@ if (window.location.pathname.endsWith('preview.html')) {
     localStorage.setItem('submittedNames', JSON.stringify(submitted));
   }
 
+  // Confirm & Send button with loading screen
   const confirmBtn = document.getElementById("confirmBtn");
   const loadingScreen = document.getElementById("loading-screen");
 
@@ -150,60 +160,11 @@ if (window.location.pathname.endsWith('preview.html')) {
   }
 }
 
-
+// =========================
+// THANK YOU PAGE LOGIC
+// =========================
 if (window.location.pathname.endsWith('thankyou.html')) {
   setTimeout(() => {
     window.location.href = 'index.html';
   }, 5000);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const confirmBtn = document.getElementById("confirmBtn");
-  const loadingScreen = document.getElementById("loading-screen");
-
-  if (confirmBtn && loadingScreen) {
-    confirmBtn.addEventListener("click", () => {
-      loadingScreen.style.display = "flex"; // Show loading immediately
-
-      const fullName = sessionStorage.getItem('fullName') || '';
-      if (hasSubmittedBefore(fullName)) {
-        alert('You have already submitted this form with the same name.');
-        loadingScreen.style.display = "none"; // ✅ Hide loading if duplicate
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('fullName', fullName);
-      formData.append('age', sessionStorage.getItem('age') || '');
-      formData.append('address', sessionStorage.getItem('address') || '');
-      formData.append('contact', sessionStorage.getItem('contact') || '');
-      formData.append('facebookName', sessionStorage.getItem('facebookName') || '');
-
-      const imgData = sessionStorage.getItem('userImage');
-      const imgName = sessionStorage.getItem('userImage_name');
-      if (imgData && imgName) {
-        const blob = dataURLtoBlob(imgData);
-        formData.append('userImage', blob, imgName);
-      }
-
-      fetch('https://moasapplicationform-backend.onrender.com/send-email', {
-        method: 'POST',
-        body: formData
-      })
-        .then(res => {
-          if (!res.ok) {
-            return res.text().then(msg => { throw new Error(msg); });
-          }
-          markAsSubmitted(fullName);
-          // Keep loading until redirect
-          window.location.href = 'thankyou.html';
-        })
-        .catch(err => {
-          alert(err.message || 'Error sending form');
-          loadingScreen.style.display = "none"; // Hide if error
-        });
-    });
-  }
-});
-
-
