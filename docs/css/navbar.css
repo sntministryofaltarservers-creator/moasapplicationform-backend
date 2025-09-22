@@ -59,7 +59,7 @@
 
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
-  .logo-section {
+ .logo-section {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -74,7 +74,6 @@
 
   .logo-left img {
     height: 30px;
-    margin-right: 8px;
   }
 
   .logo-left h2 {

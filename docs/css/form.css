@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden;
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -83,12 +84,10 @@ input[type="file"]::file-selector-button:hover {
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
   margin-top: 20px;
 }
 
-.button-group button {
+#previewBtn {
   padding: 12px 20px;
   font-size: 16px;
   border-radius: 6px;
@@ -99,10 +98,16 @@ input[type="file"]::file-selector-button:hover {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.button-group button:hover {
+#previewBtn:hover:enabled {
   background-color: #005fa3;
   transform: scale(1.02);
 }
+
+#previewBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 
 @media (max-width: 768px) {
   .main-content {
