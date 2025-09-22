@@ -1,3 +1,4 @@
+/* 🔹 Navbar Styles */
 .navbar-logo {
   height: 40px;
   width: auto;
@@ -8,80 +9,45 @@
   background-color: #0077cc;
   color: white;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
   width: 100%;
-  flex-wrap: wrap;
-  margin-top: 0;
 }
 
-.logo-left,
+.logo-left {
+  display: flex;
+  align-items: center;
+}
+
 .logo-right {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.logo-left h2 {
-  font-size: 24px;
-  margin: 0;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .logo-right p {
-  font-size: 18px;
+  font-size: 20px;
   margin: 0;
+  text-align: right;
 }
 
 /* 🔹 Desktop layout */
 @media (min-width: 601px) {
-  .logo-section {
-    flex-wrap: nowrap;
-  }
-
-  .logo-left {
-    flex: 1;
-    justify-content: flex-start;
-    margin-bottom: 0;
-  }
-
-  .logo-right {
-    flex: 2;
-    justify-content: flex-end;
-    margin-bottom: 0;
-  }
-
   .logo-right p {
-    font-size: 25px;
-    text-align: right;
+    font-size: 24px;
   }
 }
 
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
- .logo-section {
+  .logo-section {
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    padding: 12px 16px;
   }
-
-  .logo-left,
-  .logo-right {
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-
-  .logo-left img {
-    height: 30px;
-  }
-
-  .logo-left h2 {
-    font-size: 20px;
-  }
-
   .logo-right p {
-    font-size: 14px;
+    font-size: 16px;
+    text-align: center;
   }
 }
