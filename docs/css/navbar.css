@@ -31,34 +31,26 @@
 }
 
 .logo-right p {
-  font-size: 20px;
+  font-size: 22px; /* Increased base size */
   margin: 0;
   text-align: right;
-  line-height: 1.2;
+  line-height: 1.4;
   white-space: nowrap;
 }
 
 /* 🔹 Desktop layout */
 @media (min-width: 601px) {
   .logo-right p {
-    font-size: 24px;
+    font-size: 28px; /* Larger for wide screens */
   }
 }
 
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
-  .navbar-logo {
-    height: 50px; /* smaller on mobile */
-  }
-  .logo-section {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 16px;
-    gap: 6px;
-  }
   .logo-right p {
-    font-size: 16px;
+    font-size: 18px; /* Slight bump for readability */
     text-align: center;
     white-space: normal;
   }
 }
+
