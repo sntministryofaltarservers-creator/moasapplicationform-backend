@@ -33,14 +33,29 @@
 }
 
 .preview-actions {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px; /* ✅ Controls spacing between buttons */
   margin-top: 30px;
 }
 
 .preview-actions button {
-  margin: 0 10px;
-  margin-bottom: 20px;
+  flex: 1 1 160px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.preview-actions button:hover {
+  background-color: #005fa3;
+}
+
 
 .preview-image-top {
   text-align: center;
@@ -52,4 +67,18 @@
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+
+@media (max-width: 600px) {
+  .preview-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .preview-actions button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 15px;
+  }
+}
+
 
