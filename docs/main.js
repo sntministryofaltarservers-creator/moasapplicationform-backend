@@ -155,11 +155,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (confirmBtn && loadingScreen) {
     confirmBtn.addEventListener("click", () => {
-      loadingScreen.style.display = "flex";
+      loadingScreen.style.display = "flex"; // Show loading immediately
 
-      setTimeout(() => {
-        loadingScreen.style.display = "none";
-      }, 2000);
+      const fullName = sessionStorage.getItem('fullName') || '';
+      if (hasSubmittedBefore(fullName)) {
+        alert('You have already submitted this form with the same name.');
+        loadingScreen.style.display = "none"; // Hide if blocked
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('age', sessionStorage.getItem('age') || '');
+      formData.append('address', sessionStorage.getItem('address') || '');
+      formData.append('contact', sessionStorage.getItem('contact') || '');
+      formData.append('facebookName', sessionStorage.getItem('facebookName') || '');
+
+      const imgData = sessionStorage.getItem('userImage');
+      const imgName = sessionStorage.getItem('userImage_name');
+      if (imgData && imgName) {
+        const blob = dataURLtoBlob(imgData);
+        formData.append('userImage', blob, imgName);
+      }
+
+      fetch('https://moasapplicationform-backend.onrender.com/send-email', {
+        method: 'POST',
+        body: formData
+      })
+        .then(res => {
+          if (!res.ok) {
+            return res.text().then(msg => { throw new Error(msg); });
+          }
+          markAsSubmitted(fullName);
+          // Keep loading screen visible until redirect
+          window.location.href = 'thankyou.html';
+        })
+        .catch(err => {
+          alert(err.message || 'Error sending form');
+          loadingScreen.style.display = "none"; // Hide if error
+        });
     });
   }
 });
+
