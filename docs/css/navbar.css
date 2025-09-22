@@ -1,6 +1,6 @@
 /* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 150px; /* will now actually display at this size */
+  height: 250px; /* will now actually display at this size */
   width: auto;
   max-width: none;
   display: block;
