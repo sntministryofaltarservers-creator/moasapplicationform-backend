@@ -1,22 +1,26 @@
 /* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 100px;
+  height: 60px; /* balanced size */
   width: auto;
   max-width: none;
+  display: block;
 }
 
 .logo-section {
   background-color: #0077cc;
   color: white;
   display: flex;
-  justify-content: flex-start;
-  align-items: center; /* keeps text vertically centered with logo */
-  padding: 0 24px; /* remove vertical padding so logo height defines navbar height */
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px; /* compact vertical padding */
   width: 100%;
+  gap: 12px;
 }
 
 .logo-left {
-  flex: 0 0 auto; /* don't let the logo shrink */
+  flex: 0 0 auto; /* don’t let it shrink */
+  display: flex;
+  align-items: center;
 }
 
 .logo-right {
@@ -24,35 +28,37 @@
   align-items: center;
   justify-content: flex-end;
   flex: 1;
-  margin-left: auto; /* push text to far right */
 }
 
 .logo-right p {
-  font-size: 24px;
+  font-size: 20px;
   margin: 0;
   text-align: right;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 /* 🔹 Desktop layout */
 @media (min-width: 601px) {
   .logo-right p {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
   .navbar-logo {
-    height: 70px; /* slightly smaller on mobile */
+    height: 50px; /* smaller on mobile */
   }
   .logo-section {
     flex-direction: column;
     text-align: center;
-    padding: 12px 16px;
+    padding: 10px 16px;
+    gap: 6px;
   }
   .logo-right p {
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
+    white-space: normal;
   }
 }
