@@ -38,8 +38,6 @@
   white-space: nowrap;
 }
 
-}
-
 /* 🔹 Desktop layout */
 @media (min-width: 601px) {
   .logo-right p {
