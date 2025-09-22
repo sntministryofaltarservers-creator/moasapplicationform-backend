@@ -10,14 +10,14 @@ if (form && previewBtn) {
   function checkFormCompletion() {
     let allFilled = true;
 
-    // Check all required text/number/textarea inputs
+    // Check all required inputs
     form.querySelectorAll('[required]').forEach(input => {
       if (!input.value.trim()) {
         allFilled = false;
       }
     });
 
-    // Check if a file is selected
+    // Check if image is uploaded
     if (!userImageInput.files || userImageInput.files.length === 0) {
       allFilled = false;
     }
@@ -61,7 +61,6 @@ if (form && previewBtn) {
     });
   });
 }
-
 
 if (window.location.pathname.endsWith('preview.html')) {
   document.getElementById('prevName').textContent = sessionStorage.getItem('fullName') || '';
@@ -154,14 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmBtn = document.getElementById("confirmBtn");
   const loadingScreen = document.getElementById("loading-screen");
 
-  confirmBtn.addEventListener("click", () => {
-    loadingScreen.style.display = "flex";
+  if (confirmBtn && loadingScreen) {
+    confirmBtn.addEventListener("click", () => {
+      loadingScreen.style.display = "flex";
 
-    // Simulate sending delay
-    setTimeout(() => {
-      loadingScreen.style.display = "none";
-      // Optionally redirect or show success message here
-    }, 2000);
-  });
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+      }, 2000);
+    });
+  }
 });
-
