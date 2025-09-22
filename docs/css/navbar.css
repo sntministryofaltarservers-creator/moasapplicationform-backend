@@ -3,6 +3,7 @@
   height: 100px; /* large and visible */
   width: auto;
   margin-right: 16px;
+  max-height: 100%;
 }
 
 .logo-section {
@@ -10,7 +11,7 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* keeps text vertically centered with logo */
+  align-items: stretch; /* keeps text vertically centered with logo */
   padding: 0 24px; /* remove vertical padding so logo height defines navbar height */
   width: 100%;
 }
