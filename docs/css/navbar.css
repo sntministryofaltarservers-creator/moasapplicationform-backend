@@ -1,6 +1,6 @@
 /* 🔹 Navbar Styles */
 .navbar-logo {
-  height: 140px; /* bigger for visibility */
+  height: 90px; /* bigger for visibility */
   width: auto;
   max-width: none; /* prevent shrinking */
   display: block;
@@ -48,7 +48,7 @@
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
   .navbar-logo {
-    height: 90px; /* still large on mobile */
+    height: 65px; /* still large on mobile */
   }
   .logo-section {
     flex-direction: column;
