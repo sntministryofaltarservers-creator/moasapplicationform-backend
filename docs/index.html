@@ -5,61 +5,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOAS Application Form</title>
-  <link rel="stylesheet" href="css/form.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-100">
   <!-- Navbar -->
-  <div class="logo-section">
-    <div class="logo-left">
-      <img src="logo.png" alt="Logo" class="navbar-logo" />
-    </div>
-    <div class="logo-right">
-      <p>To Serve Humbly The Lord</p>
-    </div>
+  <div class="flex justify-between items-center bg-blue-600 text-white p-4">
+    <img src="logo.png" alt="Logo" class="h-12" />
+    <p class="font-bold">To Serve Humbly The Lord</p>
   </div>
 
   <!-- Main Content -->
-  <div class="main-content">
-    <div class="form-wrapper">
-      <h1>Application Form</h1>
-      <form id="applicationForm">
-        <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" name="fullName" required />
-        </div>
+  <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow mt-6">
+    <h1 class="text-2xl font-bold mb-4">Application Form</h1>
+    <form id="applicationForm" class="space-y-4">
+      <div>
+        <label for="fullName" class="block font-medium mb-1">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required
+          class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-500" />
+      </div>
 
-        <div class="form-group">
-          <label for="age">Age</label>
-          <input type="number" id="age" name="age" required />
-        </div>
+      <div>
+        <label for="age" class="block font-medium mb-1">Age</label>
+        <input type="number" id="age" name="age" required
+          class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-500" />
+      </div>
 
-        <div class="form-group">
-          <label for="address">Address</label>
-          <textarea id="address" name="address" rows="3" required></textarea>
-        </div>
+      <div>
+        <label for="address" class="block font-medium mb-1">Address</label>
+        <textarea id="address" name="address" rows="3" required
+          class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-500"></textarea>
+      </div>
 
-        <div class="form-group">
-          <label for="contact">Contact</label>
-          <input type="tel" id="contact" name="contact" required />
-        </div>
+      <div>
+        <label for="contact" class="block font-medium mb-1">Contact</label>
+        <input type="tel" id="contact" name="contact" required
+          class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-500" />
+      </div>
 
-        <div class="form-group">
-          <label for="facebookName">Facebook Name</label>
-          <input type="text" id="facebookName" name="facebookName" required />
-        </div>
+      <div>
+        <label for="facebookName" class="block font-medium mb-1">Facebook Name</label>
+        <input type="text" id="facebookName" name="facebookName" required
+          class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-500" />
+      </div>
 
-        <div class="form-group">
-          <label for="userImage">Upload Photo (1x1 or Selfie)</label>
-          <input type="file" id="userImage" name="userImage" accept="image/*" required />
-        </div>
+      <div>
+        <label for="userImage" class="block font-medium mb-1">Upload Photo (1x1 or Selfie)</label>
+        <input type="file" id="userImage" name="userImage" accept="image/*" required
+          class="w-full border border-gray-300 rounded p-2" />
+      </div>
 
-        <div class="button-group">
-          <button type="button" id="previewBtn" disabled>Preview</button>
-        </div>
-      </form>
-    </div>
+      <div class="text-center">
+        <button type="button" id="previewBtn" disabled
+          class="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed">
+          Preview
+        </button>
+      </div>
+    </form>
   </div>
 
   <script src="main.js"></script>

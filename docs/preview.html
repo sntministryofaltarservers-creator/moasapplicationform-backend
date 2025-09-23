@@ -5,40 +5,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Preview Submission</title>
-  <link rel="stylesheet" href="css/form.css" />
-  <link rel="stylesheet" href="css/preview.css" />
-  <link rel="stylesheet" href="css/loadingscreen.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <div class="logo-section">
-    <div class="logo-left">
-      <img src="logo.png" alt="Logo" class="navbar-logo" />
-    </div>
-    <div class="logo-right">
-      <p>To Serve Humbly The Lord</p>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <div class="flex justify-between items-center bg-blue-600 text-white p-4">
+    <img src="logo.png" alt="Logo" class="h-12" />
+    <p class="font-bold">To Serve Humbly The Lord</p>
+  </div>
+
+  <div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow mt-6">
+    <h1 class="text-2xl font-bold mb-4">Check your Application Form</h1>
+    <div id="prevImageContainer" class="text-center mb-4"></div>
+    <div class="mb-2"><strong>Name:</strong> <span id="prevName"></span></div>
+    <div class="mb-2"><strong>Age:</strong> <span id="prevAge"></span></div>
+    <div class="mb-2"><strong>Address:</strong> <span id="prevAddress"></span></div>
+    <div class="mb-2"><strong>Contact:</strong> <span id="prevContact"></span></div>
+    <div class="mb-2"><strong>Facebook Name:</strong> <span id="prevFacebookName"></span></div>
+
+    <div class="text-center mt-4 space-x-4">
+      <button id="editBtn" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700">Edit</button>
+      <button id="confirmBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-800">Confirm & Send</button>
     </div>
   </div>
 
-  <div class="preview-wrapper">
-    <h1>Check your Application Form</h1>
-    <div id="prevImageContainer" class="preview-image-top"></div>
-    <div class="preview-field"><strong>Name:</strong> <span id="prevName"></span></div>
-    <div class="preview-field"><strong>Age:</strong> <span id="prevAge"></span></div>
-    <div class="preview-field"><strong>Address:</strong> <span id="prevAddress"></span></div>
-    <div class="preview-field"><strong>Contact:</strong> <span id="prevContact"></span></div>
-    <div class="preview-field"><strong>Facebook Name:</strong> <span id="prevFacebookName"></span></div>
-
-    <div class="preview-actions">
-      <button id="editBtn">Edit</button>
-      <button id="confirmBtn">Confirm & Send</button>
-    </div>
-  </div>
-
-  <div id="loading-screen">
-    <div class="spinner"></div>
-    <p>Sending your data...</p>
+  <!-- Loading Screen -->
+  <div id="loading-screen"
+    class="hidden fixed inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center z-50">
+    <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
+    <p class="text-white text-lg">Sending your data...</p>
   </div>
 
   <script src="main.js"></script>
