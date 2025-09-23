@@ -1,56 +1,57 @@
-/* 🔹 Navbar Styles */
-.navbar-logo {
-  height: 100px; /* balanced size */
-  width: auto;
-  max-width: none;
-  display: block;
+/* 🔹 Hardened Navbar Styles */
+body .navbar-logo {
+  height: 100px !important; /* balanced size */
+  width: auto !important;
+  max-width: none !important;
+  display: block !important;
 }
 
-.logo-section {
-  background-color: #0077cc;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* ✅ centers text vertically with logo */
-  padding: 0 20px;
-  width: 100%;
-  gap: 12px;
+body .logo-section {
+  background-color: #0077cc !important;
+  color: white !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important; /* ✅ centers text vertically with logo */
+  padding: 0 20px !important;
+  width: 100% !important;
+  gap: 12px !important;
 }
 
-.logo-left {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center; /* ✅ ensures logo is centered in its own container */
+body .logo-left {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important; /* ✅ ensures logo is centered in its own container */
 }
 
-.logo-right {
-  display: flex;
-  align-items: center; /* ✅ centers motto text vertically */
-  justify-content: flex-end;
-  flex: 1;
+body .logo-right {
+  display: flex !important;
+  align-items: center !important; /* ✅ centers motto text vertically */
+  justify-content: flex-end !important;
+  flex: 1 !important;
 }
 
-.logo-right p {
-  font-size: 22px; /* Increased base size */
-  margin: 0;
-  text-align: right;
-  line-height: 1.4;
-  white-space: nowrap;
+body .logo-right p {
+  font-size: 22px !important; /* Increased base size */
+  margin: 0 !important;
+  text-align: right !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  color: white !important;
+  font-family: sans-serif !important;
 }
 
 /* 🔹 Desktop layout */
 @media (min-width: 601px) {
-  .logo-right p {
-    font-size: 28px; /* Larger for wide screens */
+  body .logo-right p {
+    font-size: 28px !important; /* Larger for wide screens */
   }
 }
 
 /* 🔹 Mobile layout */
 @media (max-width: 600px) {
-  .logo-right p {
-    font-size: 18px; /* Slight bump for readability */
-    text-align: center;
-    white-space: normal;
+  body .logo-right p {
+    font-size: 18px !important; /* Slight bump for readability */
+    text-align: center !important;
+    white-space: normal !important;
   }
 }
-
