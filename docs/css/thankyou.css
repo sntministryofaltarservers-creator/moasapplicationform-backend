@@ -1,11 +1,11 @@
 .thankyou-wrapper {
+  width: 100%;
   max-width: 700px;
-  margin: 80px auto;
-  background: #fff;
-  padding: 40px 50px;
+  margin: 20px auto;
+  padding: 24px;
+  background: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
 }
 
 .thankyou-wrapper h1 {
