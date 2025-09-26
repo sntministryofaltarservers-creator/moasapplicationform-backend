@@ -35,22 +35,25 @@ if (form && previewBtn) {
   userImageInput.addEventListener('change', checkFormCompletion);
 
   previewBtn.addEventListener('click', () => {
-    const formData = new FormData(form);
+    const imageFile = userImageInput.files[0];
+    if (imageFile && imageFile.size > 5 * 1024 * 1024) {
+      alert("Please upload an image smaller than 5MB.");
+      return;
+    }
 
+    const formData = new FormData(form);
     formData.forEach((value, key) => {
       if (!(value instanceof File)) {
         sessionStorage.setItem(key, value);
       }
     });
 
-    const imageFile = userImageInput.files[0];
-    if (imageFile) {
-      sessionStorage.setItem('userImage_name', imageFile.name);
-      sessionStorage.setItem('userImage_url', URL.createObjectURL(imageFile));
-    }
+    sessionStorage.setItem('userImage_name', imageFile.name);
+    sessionStorage.setItem('userImage_url', URL.createObjectURL(imageFile));
 
     window.location.href = 'preview.html';
   });
+
 }
 
 // =========================
