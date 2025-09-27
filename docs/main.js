@@ -48,15 +48,14 @@ if (form && previewBtn) {
       }
     });
 
-    // Convert image to base64 and store in sessionStorage
-    const reader = new FileReader();
-    reader.onload = () => {
-      sessionStorage.setItem('userImage_data', reader.result); // base64 string
-      sessionStorage.setItem('userImage_name', imageFile.name);
-      sessionStorage.setItem('userImage_type', imageFile.type);
-      window.location.href = 'preview.html';
-    };
-    reader.readAsDataURL(imageFile);
+    // Store image metadata and object URL
+    sessionStorage.setItem('userImage_name', imageFile.name);
+    sessionStorage.setItem('userImage_url', URL.createObjectURL(imageFile));
+
+    // Temporarily store image file in memory
+    window.userImageFile = imageFile;
+
+    window.location.href = 'preview.html';
   });
 }
 
@@ -70,10 +69,10 @@ if (window.location.pathname.endsWith('preview.html')) {
   document.getElementById('prevContact').textContent = sessionStorage.getItem('contact') || '';
   document.getElementById('prevFacebookName').textContent = sessionStorage.getItem('facebookName') || '';
 
-  const imgData = sessionStorage.getItem('userImage_data');
-  if (imgData) {
+  const imageURL = sessionStorage.getItem('userImage_url');
+  if (imageURL) {
     const img = document.createElement('img');
-    img.src = imgData;
+    img.src = imageURL;
     img.alt = "Uploaded Photo";
     img.className = "rounded-lg max-w-xs mx-auto";
     document.getElementById('prevImageContainer').appendChild(img);
@@ -114,13 +113,9 @@ if (window.location.pathname.endsWith('preview.html')) {
     formData.append('contact', sessionStorage.getItem('contact') || '');
     formData.append('facebookName', sessionStorage.getItem('facebookName') || '');
 
-    const imgData = sessionStorage.getItem('userImage_data');
-    const imgName = sessionStorage.getItem('userImage_name');
-    const imgType = sessionStorage.getItem('userImage_type');
-
-    if (imgData && imgName && imgType) {
-      const blob = dataURLtoBlob(imgData);
-      formData.append('userImage', blob, imgName);
+    const imageFile = window.userImageFile;
+    if (imageFile) {
+      formData.append('userImage', imageFile, imageFile.name);
     }
 
     fetch('https://moasapplicationform-backend.onrender.com/send-email', {
@@ -139,18 +134,6 @@ if (window.location.pathname.endsWith('preview.html')) {
         loadingScreen.style.display = "none";
       });
   });
-
-  function dataURLtoBlob(dataURL) {
-    const arr = dataURL.split(',');
-    const mime = arr[0].match(/:(.*?);/)[1];
-    const bstr = atob(arr[1]);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], { type: mime });
-  }
 }
 
 // =========================
