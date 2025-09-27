@@ -48,12 +48,15 @@ if (form && previewBtn) {
       }
     });
 
+    // Store image metadata and object URL
     sessionStorage.setItem('userImage_name', imageFile.name);
     sessionStorage.setItem('userImage_url', URL.createObjectURL(imageFile));
 
+    // Store image file reference for later use
+    window.userImageFile = imageFile;
+
     window.location.href = 'preview.html';
   });
-
 }
 
 // =========================
@@ -74,7 +77,6 @@ if (window.location.pathname.endsWith('preview.html')) {
     img.className = "rounded-lg max-w-xs mx-auto";
     document.getElementById('prevImageContainer').appendChild(img);
   }
-
 
   document.getElementById('editBtn').addEventListener('click', () => {
     window.location.href = 'index.html';
@@ -111,8 +113,8 @@ if (window.location.pathname.endsWith('preview.html')) {
     formData.append('contact', sessionStorage.getItem('contact') || '');
     formData.append('facebookName', sessionStorage.getItem('facebookName') || '');
 
-    const imageInput = document.getElementById('userImage');
-    const imageFile = imageInput?.files?.[0];
+    // Retrieve image file from index page reference
+    const imageFile = window.userImageFile;
     if (imageFile) {
       formData.append('userImage', imageFile, imageFile.name);
     }
